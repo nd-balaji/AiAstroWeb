@@ -1,53 +1,332 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Panchangam – Tamil Calendar Powered by AI</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saranga AI Astro | Your Cosmic Guide</title>
+  <meta name="description"
+    content="Personalized AI Astrology and Panchangam. Get your lucky day alerts, horoscope, and chat with AI Astro.">
+
+  <!-- Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            indigo: {
+              950: '#0a0a26',
+              900: '#1a1a40',
+              800: '#2e0249',
+            },
+            accent: '#a91079',
+            premium: '#570a57'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
   <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background: #f7f6f2;
-      color: #333;
-      text-align: center;
-      padding: 60px 20px;
+    .glass {
+      background: rgba(26, 26, 64, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    h1 {
-      color: #e53935;
+
+    .hero-bg {
+      background-image: linear-gradient(to bottom, rgba(10, 10, 38, 0.8), rgba(10, 10, 38, 0.95)), url('hero-bg.png');
+      background-size: cover;
+      background-position: center;
     }
-    .subtitle {
-      font-size: 1.2em;
-      margin-bottom: 20px;
+
+    .glow {
+      box-shadow: 0 0 20px rgba(169, 16, 121, 0.3);
     }
-    .button {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 24px;
-      font-size: 1em;
-      background-color: #4caf50;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
     }
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #777;
+
+    .floating {
+      animation: float 4s ease-in-out infinite;
     }
   </style>
 </head>
-<body>
-  <h1>AI Panchangam</h1>
-  <p class="subtitle">Your Smart Tamil Calendar & Daily Astrological Companion</p>
 
-  <p>AI Panchangam combines traditional Tamil astrology with modern technology.<br>
-  Get daily panchang details, auspicious timings, and celestial events – all powered by AI.</p>
+<body class="bg-indigo-950 text-gray-100 font-sans">
 
-  <a class="button" href="https://play.google.com/store/apps/details?id=com.saranga.saranga_app" target="_blank">Download on Play Store</a>
-  <a class="button" href="https://apps.apple.com/app/id6743130637" target="_blank">Download on App Store</a>
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 glass py-4">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <div class="w-10 h-10 bg-accent rounded-xl flex items-center justify-center glow">
+          <i class="fas fa-moon text-white"></i>
+        </div>
+        <span class="text-xl font-bold tracking-tight">Saranga <span class="text-accent">AI Astro</span></span>
+      </div>
+      <div class="hidden md:flex space-x-8 text-sm font-medium">
+        <a href="#features" class="hover:text-accent transition">Features</a>
+        <a href="#chatbot" class="hover:text-accent transition">AI Chat</a>
+        <a href="#download" class="bg-accent px-5 py-2 rounded-full glow hover:scale-105 transition">Download App</a>
+      </div>
+    </div>
+  </nav>
 
-  <footer>
-    <p>&copy; 2025 Saranga. All rights reserved.</p>
+  <!-- Hero Section -->
+  <section class="hero-bg min-h-screen flex items-center pt-20 px-6">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Left: Hero Text -->
+      <div class="space-y-8">
+        <h1 class="text-5xl lg:text-7xl font-serif leading-tight">
+          Your Cosmic Guide <br>
+          <span class="text-accent underline decoration-indigo-500">In Your Pocket</span>
+        </h1>
+        <p class="text-lg text-gray-300 max-w-lg">
+          Harness the power of AI to decode your destiny. Real-time Tamil Panchangam, Personalized Lucky Day alerts, and
+          Astro-chats for 2026.
+        </p>
+
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a href="#"
+            class="flex items-center space-x-3 bg-white text-black px-6 py-3 rounded-2xl hover:scale-105 transition duration-300">
+            <i class="fab fa-apple text-3xl"></i>
+            <div class="text-left">
+              <p class="text-[10px] uppercase font-bold text-gray-500">Download on the</p>
+              <p class="text-xl font-bold leading-none">App Store</p>
+            </div>
+          </a>
+          <a href="#"
+            class="flex items-center space-x-3 bg-white text-black px-6 py-3 rounded-2xl hover:scale-105 transition duration-300">
+            <i class="fab fa-google-play text-2xl"></i>
+            <div class="text-left">
+              <p class="text-[10px] uppercase font-bold text-gray-500">Get it on</p>
+              <p class="text-xl font-bold leading-none">Google Play</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop QR Code -->
+        <div class="hidden lg:flex items-center space-x-6 p-4 glass rounded-2xl w-fit">
+          <img
+            src="https://quickchart.io/qr?text=https%3A%2F%2Fsaranga-astro.com%2Fapp&size=80&ecLevel=H&centerImageUrl=https%3A%2F%2Fraw.githubusercontent.com%2Ffortawesome%2FFont-Awesome%2Fmaster%2Fsvgs%2Fsolid%2Fmoon.svg"
+            alt="QR Code" class="rounded-lg shadow-lg">
+          <div>
+            <p class="font-bold">Scan to Download</p>
+            <p class="text-sm text-gray-400">Jump straight to the stores</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Interactive 'Quick Look' Card -->
+      <div class="relative flex justify-center">
+        <div class="glass p-8 rounded-[2.5rem] w-full max-w-sm glow floating">
+          <div class="flex justify-between items-center mb-6">
+            <span class="text-xs uppercase font-bold tracking-widest text-accent">Panchangam Today</span>
+            <span id="current-time" class="text-xs font-mono text-gray-400">--:-- --</span>
+          </div>
+
+          <div class="space-y-6 text-center">
+            <div class="py-4 border-b border-white/10">
+              <p class="text-sm text-gray-400 mb-1" id="tamil-year">-- Year --</p>
+              <h2 class="text-3xl font-bold" id="tamil-month">-- Month --</h2>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-4 bg-white/5 rounded-2xl">
+                <p class="text-[10px] text-gray-500 uppercase font-bold mb-1">Tithi</p>
+                <p class="font-bold text-lg" id="current-tithi">--</p>
+              </div>
+              <div class="p-4 bg-white/5 rounded-2xl">
+                <p class="text-[10px] text-gray-500 uppercase font-bold mb-1">Nakshatram</p>
+                <p class="font-bold text-lg" id="current-nakshatram">--</p>
+              </div>
+            </div>
+
+            <div class="bg-accent/20 p-4 rounded-2xl border border-accent/30">
+              <p class="text-xs font-bold text-accent mb-1 uppercase">Auspicious Time</p>
+              <p class="text-xl font-bold">11:45 AM - 12:30 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Section -->
+  <section id="features" class="py-24 bg-indigo-900/50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-serif mb-4">Why Saranga AI Astro?</h2>
+        <div class="w-20 h-1 bg-accent mx-auto"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 glass rounded-3xl hover:bg-white/5 transition">
+          <i class="fas fa-magic text-3xl text-accent mb-6"></i>
+          <h3 class="text-xl font-bold mb-3">AI Predictions</h3>
+          <p class="text-gray-400">Powered by advanced Astro-LLMs trained on centuries of Vedic knowledge.</p>
+        </div>
+        <div class="p-8 glass rounded-3xl hover:bg-white/5 transition">
+          <i class="fas fa-bell text-3xl text-accent mb-6"></i>
+          <h3 class="text-xl font-bold mb-3">Lucky Day Alerts</h3>
+          <p class="text-gray-400">Get notified about your personal Chandrastama and high-energy days.</p>
+        </div>
+        <div class="p-8 glass rounded-3xl hover:bg-white/5 transition">
+          <i class="fas fa-language text-3xl text-accent mb-6"></i>
+          <h3 class="text-xl font-bold mb-3">Native Language</h3>
+          <p class="text-gray-400">Available in full Tamil and English with culturally nuanced insights.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chatbot Mockup Section -->
+  <section id="chatbot" class="py-24">
+    <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <div class="order-2 md:order-1">
+        <div class="glass rounded-[2rem] overflow-hidden shadow-2xl border-indigo-500/30">
+          <!-- Chat Header -->
+          <div class="bg-indigo-800/80 p-4 flex items-center space-x-3 border-b border-white/10">
+            <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
+              <i class="fas fa-robot text-sm"></i>
+            </div>
+            <div>
+              <p class="font-bold text-sm">Saranga AI</p>
+              <p class="text-[10px] text-green-400 flex items-center">
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-1 animate-pulse"></span> Online Now
+              </p>
+            </div>
+          </div>
+          <!-- Chat Content -->
+          <div class="p-6 space-y-4 h-80 overflow-y-auto bg-indigo-950/40">
+            <div class="flex justify-end">
+              <div class="bg-indigo-700/60 p-3 rounded-2xl rounded-tr-none text-sm max-w-[80%]">
+                What is the auspicious time for a housewarming today?
+              </div>
+            </div>
+            <div class="flex">
+              <div class="bg-accent p-3 rounded-2xl rounded-tl-none text-sm max-w-[80%] shadow-lg">
+                Based on your location (Chennai), today is <strong>Panguni 30</strong>. The best Muhurtham for
+                housewarming is between <strong>10:45 AM and 12:00 PM</strong>.
+              </div>
+            </div>
+          </div>
+          <!-- Chat Input -->
+          <div class="p-4 bg-indigo-900/50 border-t border-white/5 flex space-x-2">
+            <div class="flex-grow bg-indigo-950/50 rounded-full py-2 px-4 text-xs text-gray-500">Type your cosmic
+              question...</div>
+            <div class="bg-accent w-8 h-8 rounded-full flex items-center justify-center text-xs">
+              <i class="fas fa-paper-plane"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-1 md:order-2 space-y-6">
+        <h2 class="text-4xl font-serif">Astro Chat: 24/7 Spiritual Companion</h2>
+        <p class="text-gray-400">Whether it's marriage matching, travel planning, or daily decision making, our AI
+          handles complex astrological queries in seconds.</p>
+        <ul class="space-y-3">
+          <li class="flex items-center space-x-3">
+            <i class="fas fa-check-circle text-accent"></i>
+            <span>Detailed Jathagam Analysis</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <i class="fas fa-check-circle text-accent"></i>
+            <span>Muhurtham Calculations</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <i class="fas fa-check-circle text-accent"></i>
+            <span>Spiritual Guidance</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Store Banners / SMS -->
+  <section id="download" class="py-24 bg-gradient-to-r from-indigo-900 to-accent/20">
+    <div class="max-w-4xl mx-auto px-6 text-center space-y-12">
+      <h2 class="text-4xl font-serif">Start Your Cosmic Journey Today</h2>
+
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+        <p class="text-lg">Send download link to phone:</p>
+        <div class="flex w-full md:w-auto p-1 bg-white/10 rounded-full border border-white/20">
+          <input type="tel" placeholder="+91 99999 99999"
+            class="bg-transparent px-4 py-2 outline-none text-sm w-full md:w-48">
+          <button class="bg-accent px-6 py-2 rounded-full font-bold text-sm glow">Send</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 border-t border-white/5 text-center text-sm text-gray-500">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <p>&copy; 2026 Saranga Spaces. All cosmic rights reserved.</p>
+        <div class="flex space-x-8">
+          <a href="#" class="hover:text-accent">Privacy Policy</a>
+          <a href="#" class="hover:text-accent">Terms of Service</a>
+          <a href="#" class="hover:text-accent">Contact Support</a>
+        </div>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // Digital Clock
+    function updateTime() {
+      const now = new Date();
+      document.getElementById('current-time').textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    // Simplified Panchangam Logic for Demo
+    function updatePanchangam() {
+      const months = ["Thai", "Maasi", "Panguni", "Chithirai", "Vaikasi", "Aani", "Aadi", "Aavani", "Purattasi", "Aippasi", "Karthigai", "Margazhi"];
+      const nakshatrams = ["Ashwini", "Bharani", "Krithika", "Rohini", "Mrigashira", "Arudra", "Punarvasu", "Pushya", "Ashlesha"];
+      const tithis = ["Prathama", "Dwitiya", "Tritiya", "Chaturthi", "Panchami", "Shashti", "Saptami", "Ashtami", "Navami", "Dashami"];
+
+      const now = new Date();
+      // This is a placeholder for actual astrological calculation
+      document.getElementById('tamil-year').textContent = "Krodhi Year";
+      document.getElementById('tamil-month').textContent = months[2]; // Fixed for demo: Panguni
+      document.getElementById('current-tithi').textContent = tithis[now.getDate() % 10];
+      document.getElementById('current-nakshatram').textContent = nakshatrams[now.getDay() + 1];
+    }
+    updatePanchangam();
+  </script>
 </body>
+
 </html>
