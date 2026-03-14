@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.saranga.saranga_app",
+            "sha256_cert_fingerprints": [
+                "80:95:53:7F:1E:7D:A2:3F:CD:60:49:6F:D1:81:A8:69:48:B7:F6:26:E3:E1:FF:EC:F3:A2:B6:85:8B:B8:A6:C9"
+            ]
+        }
+    }
+]

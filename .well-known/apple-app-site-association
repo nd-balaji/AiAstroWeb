@@ -1,0 +1,15 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "2U4KAGK3P6.com.saranga.sarangaPanchang",
+                "paths": [
+                    "/blog",
+                    "/blog.html",
+                    "/blog.html?post=*"
+                ]
+            }
+        ]
+    }
+}
