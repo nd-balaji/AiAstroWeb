@@ -119,6 +119,7 @@
         <div class="hidden md:flex space-x-8 text-sm font-medium">
           <a href="#features" class="hover:text-accent transition" data-i18n="nav.features">Features</a>
           <a href="#chatbot" class="hover:text-accent transition" data-i18n="nav.chatbot">AI Chat</a>
+          <a href="#contact" class="hover:text-accent transition" data-i18n="nav.contact">Contact</a>
           <a href="#download" class="bg-accent text-white px-5 py-2 rounded-full glow hover:scale-105 transition"
             data-i18n="nav.download">Download App</a>
         </div>
@@ -319,6 +320,54 @@
     </div>
   </section>
 
+  <!-- Contact Us Section -->
+  <section id="contact" class="py-24 bg-white dark:bg-indigo-950">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-serif mb-4 dark:text-white text-indigo-950" data-i18n="contact.title">Contact Us</h2>
+        <div class="w-16 h-1 bg-accent mx-auto"></div>
+        <p class="mt-4 dark:text-gray-400 text-gray-600" data-i18n="contact.desc">Have a question or feedback? We'd love
+          to hear from you.</p>
+      </div>
+
+      <div class="glass p-8 rounded-[2rem] dark:border-white/10 border-black/5 shadow-xl">
+        <form action="https://formspree.io/f/mqaeedoz" method="POST" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-bold mb-2 dark:text-gray-300 text-gray-700"
+                data-i18n="contact.form.name">Your Name</label>
+              <input type="text" name="name" required
+                class="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 outline-none focus:border-accent transition dark:text-white text-indigo-950">
+            </div>
+            <div>
+              <label class="block text-sm font-bold mb-2 dark:text-gray-300 text-gray-700"
+                data-i18n="contact.form.email">Your Email</label>
+              <input type="email" name="_replyto" required
+                class="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 outline-none focus:border-accent transition dark:text-white text-indigo-950">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-bold mb-2 dark:text-gray-300 text-gray-700"
+              data-i18n="contact.form.subject">Subject</label>
+            <input type="text" name="subject" required
+              class="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 outline-none focus:border-accent transition dark:text-white text-indigo-950">
+          </div>
+          <div>
+            <label class="block text-sm font-bold mb-2 dark:text-gray-300 text-gray-700"
+              data-i18n="contact.form.message">Message</label>
+            <textarea name="message" rows="4" required
+              class="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 outline-none focus:border-accent transition dark:text-white text-indigo-950"></textarea>
+          </div>
+          <button type="submit"
+            class="w-full bg-accent text-white font-bold py-4 rounded-xl shadow-lg hover:scale-[1.02] active:scale-[0.98] transition glow"
+            data-i18n="contact.form.submit">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- App Store Banners / SMS -->
   <section id="download"
     class="py-24 bg-gradient-to-r from-indigo-100 to-accent/5 dark:from-indigo-900 dark:to-accent/20">
@@ -396,7 +445,15 @@
         "footer.rights": "All cosmic rights reserved.",
         "footer.privacy": "Privacy Policy",
         "footer.terms": "Terms of Service",
-        "footer.contact": "Contact Support"
+        "footer.contact": "Contact Support",
+        "nav.contact": "Contact",
+        "contact.title": "Contact Us",
+        "contact.desc": "Have a question or feedback? We'd love to hear from you.",
+        "contact.form.name": "Your Name",
+        "contact.form.email": "Your Email",
+        "contact.form.subject": "Subject",
+        "contact.form.message": "Message",
+        "contact.form.submit": "Send Message"
       },
       ta: {
         "nav.features": "சிறப்பு அம்சங்கள்",
@@ -433,7 +490,15 @@
         "footer.rights": "அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
         "footer.privacy": "தனியுரிமைக் கொள்கை",
         "footer.terms": "நிபந்தனைகள்",
-        "footer.contact": "ஆதரவைத் தொடர்பு கொள்ளவும்"
+        "footer.contact": "ஆதரவைத் தொடர்பு கொள்ளவும்",
+        "nav.contact": "தொடர்பு கொள்ள",
+        "contact.title": "தொடர்பு கொள்ள",
+        "contact.desc": "உங்களுக்கு ஏதேனும் கேள்வி அல்லது கருத்து உள்ளதா? நாங்கள் உங்களிடமிருந்து கேட்க விரும்புகிறோம்.",
+        "contact.form.name": "உங்கள் பெயர்",
+        "contact.form.email": "உங்கள் மின்னஞ்சல்",
+        "contact.form.subject": "பொருள்",
+        "contact.form.message": "செய்தி",
+        "contact.form.submit": "செய்தியை அனுப்பு"
       }
     };
 
