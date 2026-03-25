@@ -13,12 +13,7 @@ To ensure uninterrupted ad revenue, the `app-ads.txt` file is required by variou
 - **Locations**:
   - Root: `/app-ads.txt`
   - Public folder: `/public/app-ads.txt`
-- **Current Content**:
-  ```text
-  google.com, pub-2812900831697343, DIRECT, f08c47fec0942fa0
-  facebook.com, 675792898941096, DIRECT, c3e20eee3f780d68
-  inmobi.com, b1e81b61bdb94928afc6df97608bfaaa, DIRECT, 83e75a7ae333ca9d
-  ```
+- **Current Content**: The file contains Google, Facebook, and InMobi entries, along with an expanded list of 90+ Reseller and Direct entries for various ad networks (Mintegral, Pubmatic, Rubicon, etc.).
 
 ## Deployment
 The site is hosted on **Cloudflare Pages** and integrated with the GitHub repository:
