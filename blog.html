@@ -276,7 +276,15 @@
             updateLangUI(currentLang);
 
             if (!currentPost) {
-                showError();
+                // Prevent soft 404 by adding noindex and redirecting
+                let noindex = document.querySelector('meta[name="robots"]');
+                if (!noindex) {
+                    noindex = document.createElement('meta');
+                    noindex.name = "robots";
+                    document.head.appendChild(noindex);
+                }
+                noindex.content = "noindex, nofollow";
+                window.location.replace('/');
                 return;
             }
 
@@ -308,8 +316,8 @@
                 // Parse frontmatter (very basic parser)
                 const parsed = parseFrontmatter(markdownText);
 
-                // Update Meta Tags
-                updateMetaTags(parsed.data);
+                // Update Meta Tags (Title, Description, Canonical URL)
+                updateMetaTags(parsed.data, postId, lang);
 
                 // Render Markdown to HTML
                 contentDiv.innerHTML = marked.parse(parsed.content);
@@ -327,8 +335,7 @@
 
             } catch (error) {
                 console.error("Failed to load blog:", error);
-                loadingDiv.classList.add('hidden');
-                errorDiv.classList.remove('hidden');
+                showError();
             }
         }
 
@@ -368,6 +375,15 @@
         function showError() {
             document.getElementById('loading').classList.add('hidden');
             document.getElementById('error-state').classList.remove('hidden');
+            
+            // Add robots noindex dynamically to prevent indexing of error pages or soft 404s
+            let noindex = document.querySelector('meta[name="robots"]');
+            if (!noindex) {
+                noindex = document.createElement('meta');
+                noindex.name = "robots";
+                document.head.appendChild(noindex);
+            }
+            noindex.content = "noindex, nofollow";
         }
 
         function parseFrontmatter(text) {
@@ -390,7 +406,7 @@
             return { data, content };
         }
 
-        function updateMetaTags(meta) {
+        function updateMetaTags(meta, postId, lang) {
             if (meta.title) {
                 document.title = `${meta.title} | Saranga AI Astro`;
             }
@@ -403,6 +419,15 @@
                 }
                 metaDesc.content = meta.meta_description;
             }
+            
+            // Update Canonical URL
+            let canonical = document.querySelector('link[rel="canonical"]');
+            if (!canonical) {
+                canonical = document.createElement('link');
+                canonical.rel = "canonical";
+                document.head.appendChild(canonical);
+            }
+            canonical.href = `https://aipanchangam.com/blog.html?post=${postId}&lang=${lang}`;
         }
 
         // --- Theme Handlers ---
