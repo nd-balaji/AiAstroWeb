@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title">Privacy Policy | Saranga AI Astro</title>
+  <meta name="description" data-i18n="meta.desc"
+    content="Privacy Policy for Saranga AI Astrology App. Learn how we collect, process, and protect your astrological data and privacy.">
+  <link rel="canonical" href="https://aipanchangam.com/privacy.html">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            indigo: {
+              950: '#0a0a26',
+              900: '#1a1a40',
+              800: '#2e0249',
+            },
+            accent: '#a91079',
+            premium: '#570a57'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dark .glass {
+      background: rgba(26, 26, 64, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .hero-bg {
+      background-image: linear-gradient(to bottom, rgba(10, 10, 38, 0.85), rgba(10, 10, 38, 0.98)), url('hero-bg.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .light .hero-bg {
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.98)), url('hero-bg.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .glow {
+      box-shadow: 0 0 20px rgba(169, 16, 121, 0.3);
+    }
+
+    /* Custom Scrollbar for modern feel */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(10, 10, 38, 0.05);
+    }
+
+    .dark ::-webkit-scrollbar-track {
+      background: rgba(10, 10, 38, 0.5);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(169, 16, 121, 0.3);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(169, 16, 121, 0.6);
+    }
+
+    /* Scroll spy active class styling */
+    .toc-link.active {
+      color: #a91079 !important;
+      font-weight: 600;
+      border-left-color: #a91079 !important;
+      padding-left: 1rem;
+    }
+  </style>
+</head>
+
+<body class="bg-white dark:bg-indigo-950 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300 min-h-screen flex flex-col">
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-accent z-[60] transition-all duration-100" style="width: 0%"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 glass py-4">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <a href="/index.html" class="flex items-center space-x-2 hover:opacity-90 transition">
+        <div class="w-10 h-10 bg-accent rounded-xl flex items-center justify-center glow">
+          <i class="fas fa-moon text-white"></i>
+        </div>
+        <span class="text-xl font-bold tracking-tight">Saranga <span class="text-accent">AI Astro</span></span>
+      </a>
+
+      <div class="flex items-center space-x-4 md:space-x-8">
+        <!-- Home Link -->
+        <a href="/index.html" class="hidden md:inline-block text-sm font-medium hover:text-accent transition" data-i18n="nav.home">Home</a>
+        
+        <!-- Lang Toggle -->
+        <button id="lang-toggle" onclick="toggleLang()"
+          class="text-sm font-bold bg-white/10 dark:bg-indigo-900/50 px-3 py-1 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition">
+          TA
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" onclick="toggleTheme()"
+          class="w-8 h-8 rounded-full flex items-center justify-center bg-white/10 dark:bg-indigo-900/50 border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition">
+          <i id="theme-icon" class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-bg pt-32 pb-16 px-6 text-center border-b border-black/5 dark:border-white/5">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold text-indigo-950 dark:text-white mb-4 animate-fade-in" data-i18n="header.title">
+        Privacy Policy
+      </h1>
+      <p class="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium tracking-wide" data-i18n="header.subtitle">
+        Effective Date: July 14, 2026
+      </p>
+      <div class="w-16 h-1 bg-accent mx-auto mt-6 rounded-full"></div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-grow max-w-7xl mx-auto w-full px-6 py-12">
+    <div class="grid lg:grid-cols-4 gap-12 items-start">
+      
+      <!-- Table of Contents (Sticky on Large Screens) -->
+      <aside class="lg:col-span-1 lg:sticky lg:top-28 space-y-6 hidden lg:block">
+        <h3 class="text-xs uppercase font-bold tracking-widest text-accent mb-4" data-i18n="toc.title">Sections</h3>
+        <nav class="flex flex-col space-y-3 border-l-2 border-black/5 dark:border-white/10">
+          <a href="#introduction" class="toc-link pl-4 border-l-2 border-transparent text-sm text-gray-500 dark:text-gray-400 hover:text-accent transition-all duration-200" data-i18n="toc.intro">1. Introduction</a>
+          <a href="#information-collected" class="toc-link pl-4 border-l-2 border-transparent text-sm text-gray-500 dark:text-gray-400 hover:text-accent transition-all duration-200" data-i18n="toc.collect">2. Information We Collect</a>
+          <a href="#data-retention-security" class="toc-link pl-4 border-l-2 border-transparent text-sm text-gray-500 dark:text-gray-400 hover:text-accent transition-all duration-200" data-i18n="toc.storage">3. Data Retention & Security</a>
+          <a href="#third-party-services" class="toc-link pl-4 border-l-2 border-transparent text-sm text-gray-500 dark:text-gray-400 hover:text-accent transition-all duration-200" data-i18n="toc.thirdparty">4. Third-Party Services</a>
+          <a href="#user-rights" class="toc-link pl-4 border-l-2 border-transparent text-sm text-gray-500 dark:text-gray-400 hover:text-accent transition-all duration-200" data-i18n="toc.rights">5. User Rights & Deletion</a>
+          <a href="#children-privacy" class="toc-link pl-4 border-l-2 border-transparent text-sm text-gray-500 dark:text-gray-400 hover:text-accent transition-all duration-200" data-i18n="toc.children">6. Children's Privacy</a>
+          <a href="#contact-info" class="toc-link pl-4 border-l-2 border-transparent text-sm text-gray-500 dark:text-gray-400 hover:text-accent transition-all duration-200" data-i18n="toc.contact">7. Contact Information</a>
+        </nav>
+      </aside>
+
+      <!-- Policy Text Content -->
+      <section class="lg:col-span-3 space-y-8">
+        
+        <!-- 1. Introduction -->
+        <article id="introduction" class="glass rounded-3xl p-8 dark:border-white/5 border-black/5 shadow-md scroll-mt-24">
+          <h2 class="text-2xl font-serif font-bold text-indigo-950 dark:text-white mb-4 flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-lg bg-accent/15 text-accent flex items-center justify-center text-sm font-semibold">1</span>
+            <span data-i18n="toc.intro">1. Introduction</span>
+          </h2>
+          <div class="prose dark:prose-invert text-gray-600 dark:text-gray-300 leading-relaxed space-y-4" id="content-intro-container">
+            <!-- Content will be dynamically inserted here for translation support -->
+            <p>Saranga Spaces ("we", "us", or "our") operates the Saranga AI Astrology mobile application (the "Mobile Application" or "App") and the website aipanchangam.com. We are committed to protecting your privacy and ensuring you have a secure experience when using our App. This Privacy Policy explains how we collect, use, store, and protect your information.</p>
+          </div>
+        </article>
+
+        <!-- 2. Information We Collect -->
+        <article id="information-collected" class="glass rounded-3xl p-8 dark:border-white/5 border-black/5 shadow-md scroll-mt-24">
+          <h2 class="text-2xl font-serif font-bold text-indigo-950 dark:text-white mb-4 flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-lg bg-accent/15 text-accent flex items-center justify-center text-sm font-semibold">2</span>
+            <span data-i18n="toc.collect">2. Information We Collect</span>
+          </h2>
+          <div class="prose dark:prose-invert text-gray-600 dark:text-gray-300 leading-relaxed space-y-6" id="content-collect-container">
+            <p>We collect information to provide better astrological services to all our users. Specifically, we collect:</p>
+            <div class="space-y-4">
+              <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+                <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-id-card text-accent mr-2"></i>Profile & Astrological Data</h4>
+                <p class="text-sm">To perform astrological calculations (such as birth charts, Panchang, and horoscope predictions), you can create profile cards within the App. This requires inputting birth details, including Name, Date of Birth, Time of Birth, and Place or Coordinates of Birth.</p>
+              </div>
+              <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+                <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-map-marker-alt text-accent mr-2"></i>Device Location Data</h4>
+                <p class="text-sm">With your permission, the App accesses your device's location to determine your current coordinates. This information is processed to display accurate local daily Panchang details (such as Tithi, Nakshatram, Rahu Kalam, etc.) relative to your current location.</p>
+              </div>
+              <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+                <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-comments text-accent mr-2"></i>Chat Logs</h4>
+                <p class="text-sm">Queries and questions you type into the AI Astrologer assistant are processed to generate response scripts. These queries help our AI agent provide contextual responses.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Data Retention & Security -->
+        <article id="data-retention-security" class="glass rounded-3xl p-8 dark:border-white/5 border-black/5 shadow-md scroll-mt-24">
+          <h2 class="text-2xl font-serif font-bold text-indigo-950 dark:text-white mb-4 flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-lg bg-accent/15 text-accent flex items-center justify-center text-sm font-semibold">3</span>
+            <span data-i18n="toc.storage">3. Data Retention & Security</span>
+          </h2>
+          <div class="prose dark:prose-invert text-gray-600 dark:text-gray-300 leading-relaxed space-y-6" id="content-storage-container">
+            <p>Your privacy is our utmost priority. Here is how we manage and secure your data:</p>
+            <div class="space-y-4">
+              <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+                <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-server text-accent mr-2"></i>Server-Side Storage</h4>
+                <p class="text-sm">Saved user profiles (including Name, DOB, TOB, and POB) are stored securely on our backend servers. This allows you to sync your profiles across multiple devices and receive consistent birth charts and calculations.</p>
+              </div>
+              <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-accent/20">
+                <h4 class="font-bold text-accent mb-1"><i class="fas fa-shield-alt mr-2"></i>Privacy Guarantee</h4>
+                <p class="text-sm">We maintain strict industry-standard security protocols. All saved profiles are encrypted and kept strictly private. We do not sell, rent, lease, or trade your personal data, birth charts, or query histories to any third-party marketing services.</p>
+              </div>
+              <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+                <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-hdd text-accent mr-2"></i>Local Storage</h4>
+                <p class="text-sm">Application preferences, UI theme states, and transient session settings are stored locally on your device using local storage or secure preferences to ensure a smooth, immediate user experience.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Third-Party Services -->
+        <article id="third-party-services" class="glass rounded-3xl p-8 dark:border-white/5 border-black/5 shadow-md scroll-mt-24">
+          <h2 class="text-2xl font-serif font-bold text-indigo-950 dark:text-white mb-4 flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-lg bg-accent/15 text-accent flex items-center justify-center text-sm font-semibold">4</span>
+            <span data-i18n="toc.thirdparty">4. Third-Party Services</span>
+          </h2>
+          <div class="prose dark:prose-invert text-gray-600 dark:text-gray-300 leading-relaxed space-y-4" id="content-thirdparty-container">
+            <p>Our Mobile Application integrates with third-party service providers (SDKs) to display ads, manage subscriptions, and monitor stability. These services collect data in accordance with their own privacy policies. You can read their policies here:</p>
+            <ul class="space-y-3 pt-2">
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-chevron-right text-accent mt-1.5 text-xs"></i>
+                <div>
+                  <strong class="dark:text-white text-indigo-950">Google Mobile Ads (AdMob)</strong> — Used for displaying advertisements within the application. 
+                  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline block md:inline-block md:ml-2">View Privacy Policy <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-chevron-right text-accent mt-1.5 text-xs"></i>
+                <div>
+                  <strong class="dark:text-white text-indigo-950">RevenueCat</strong> — Used for validating in-app purchases and managing premium subscription states. 
+                  <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline block md:inline-block md:ml-2">View Privacy Policy <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-chevron-right text-accent mt-1.5 text-xs"></i>
+                <div>
+                  <strong class="dark:text-white text-indigo-950">Firebase (Analytics & Crashlytics)</strong> — Used for tracking app stability, logging crash metrics, and analyzing usage patterns to improve the overall experience. 
+                  <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline block md:inline-block md:ml-2">View Privacy Policy <i class="fas fa-external-link-alt text-[10px]"></i></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 5. User Rights & Data Deletion -->
+        <article id="user-rights" class="glass rounded-3xl p-8 dark:border-white/5 border-black/5 shadow-md scroll-mt-24">
+          <h2 class="text-2xl font-serif font-bold text-indigo-950 dark:text-white mb-4 flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-lg bg-accent/15 text-accent flex items-center justify-center text-sm font-semibold">5</span>
+            <span data-i18n="toc.rights">5. User Rights & Deletion</span>
+          </h2>
+          <div class="prose dark:prose-invert text-gray-600 dark:text-gray-300 leading-relaxed space-y-4" id="content-rights-container">
+            <p>You retain full control over your information:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong class="dark:text-white text-indigo-950">Profile Management:</strong> You have the right to modify or delete your saved profiles directly from the app interface at any time.</li>
+              <li><strong class="dark:text-white text-indigo-950">Permanent Deletion Requests:</strong> If you want to permanently delete your account, saved profiles, and all associated data from our servers, you can submit a request to our support team at <a href="mailto:sarangapanchangam@gmail.com" class="text-accent hover:underline font-semibold">sarangapanchangam@gmail.com</a>. We will process and delete your data from our systems within 30 days.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 6. Children's Privacy -->
+        <article id="children-privacy" class="glass rounded-3xl p-8 dark:border-white/5 border-black/5 shadow-md scroll-mt-24">
+          <h2 class="text-2xl font-serif font-bold text-indigo-950 dark:text-white mb-4 flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-lg bg-accent/15 text-accent flex items-center justify-center text-sm font-semibold">6</span>
+            <span data-i18n="toc.children">6. Children's Privacy</span>
+          </h2>
+          <div class="prose dark:prose-invert text-gray-600 dark:text-gray-300 leading-relaxed space-y-4" id="content-children-container">
+            <p>Our services are not designed for or targeted at children under 13 years of age. We do not knowingly collect personal information from children under 13. If we discover that a child under 13 has provided us with personal information, we will immediately delete it from our servers.</p>
+          </div>
+        </article>
+
+        <!-- 7. Contact Information -->
+        <article id="contact-info" class="glass rounded-3xl p-8 dark:border-white/5 border-black/5 shadow-md scroll-mt-24">
+          <h2 class="text-2xl font-serif font-bold text-indigo-950 dark:text-white mb-4 flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-lg bg-accent/15 text-accent flex items-center justify-center text-sm font-semibold">7</span>
+            <span data-i18n="toc.contact">7. Contact Information</span>
+          </h2>
+          <div class="prose dark:prose-invert text-gray-600 dark:text-gray-300 leading-relaxed space-y-4" id="content-contact-container">
+            <p>If you have any questions or concerns regarding this Privacy Policy or your data, please contact us at:</p>
+            <ul class="space-y-3 pt-2">
+              <li class="flex items-center space-x-3">
+                <i class="fas fa-envelope text-accent w-5 text-center"></i>
+                <span>Email: <a href="mailto:sarangapanchangam@gmail.com" class="text-accent hover:underline">sarangapanchangam@gmail.com</a></span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fas fa-globe text-accent w-5 text-center"></i>
+                <span>Website Contact Form: <a href="https://aipanchangam.com/#contact" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">aipanchangam.com/#contact</a></span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-12 border-t border-black/5 dark:border-white/5 text-center text-sm text-gray-500">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <p>&copy; 2026 Saranga Spaces. <span data-i18n="footer.rights">All cosmic rights reserved.</span></p>
+        <div class="flex space-x-8">
+          <a href="/privacy.html" class="hover:text-accent text-accent font-semibold" data-i18n="footer.privacy">Privacy Policy</a>
+          <a href="/index.html#contact" class="hover:text-accent" data-i18n="footer.contact">Contact Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // --- State Management ---
+    const state = {
+      theme: localStorage.getItem('theme') || 'dark',
+      lang: localStorage.getItem('lang') || 'en'
+    };
+
+    const i18n = {
+      en: {
+        "title": "Privacy Policy | Saranga AI Astro",
+        "meta.desc": "Privacy Policy for Saranga AI Astrology App. Learn how we collect, process, and protect your astrological data and privacy.",
+        "nav.home": "Home",
+        "header.title": "Privacy Policy",
+        "header.subtitle": "Effective Date: July 14, 2026",
+        "toc.title": "Sections",
+        "toc.intro": "1. Introduction",
+        "toc.collect": "2. Information We Collect",
+        "toc.storage": "3. Data Retention & Security",
+        "toc.thirdparty": "4. Third-Party Services",
+        "toc.rights": "5. User Rights & Deletion",
+        "toc.children": "6. Children's Privacy",
+        "toc.contact": "7. Contact Information",
+        "footer.rights": "All cosmic rights reserved.",
+        "footer.privacy": "Privacy Policy",
+        "footer.contact": "Contact Support",
+        "content.intro": `
+          <p>Saranga Spaces ("we", "us", or "our") operates the Saranga AI Astrology mobile application (the "Mobile Application" or "App") and the website aipanchangam.com. We are committed to protecting your privacy and ensuring you have a secure experience when using our App. This Privacy Policy explains how we collect, use, store, and protect your information.</p>
+        `,
+        "content.collect": `
+          <p>We collect information to provide better astrological services to all our users. Specifically, we collect:</p>
+          <div class="space-y-4">
+            <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+              <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-id-card text-accent mr-2"></i>Profile & Astrological Data</h4>
+              <p class="text-sm">To perform astrological calculations (such as birth charts, Panchang, and horoscope predictions), you can create profile cards within the App. This requires inputting birth details, including Name, Date of Birth, Time of Birth, and Place or Coordinates of Birth.</p>
+            </div>
+            <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+              <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-map-marker-alt text-accent mr-2"></i>Device Location Data</h4>
+              <p class="text-sm">With your permission, the App accesses your device's location to determine your current coordinates. This information is processed to display accurate local daily Panchang details (such as Tithi, Nakshatram, Rahu Kalam, etc.) relative to your current location.</p>
+            </div>
+            <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+              <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-comments text-accent mr-2"></i>Chat Logs</h4>
+              <p class="text-sm">Queries and questions you type into the AI Astrologer assistant are processed to generate response scripts. These queries help our AI agent provide contextual responses.</p>
+            </div>
+          </div>
+        `,
+        "content.storage": `
+          <p>Your privacy is our utmost priority. Here is how we manage and secure your data:</p>
+          <div class="space-y-4">
+            <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+              <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-server text-accent mr-2"></i>Server-Side Storage</h4>
+              <p class="text-sm">Saved user profiles (including Name, DOB, TOB, and POB) are stored securely on our backend servers. This allows you to sync your profiles across multiple devices and receive consistent birth charts and calculations.</p>
+            </div>
+            <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-accent/20">
+              <h4 class="font-bold text-accent mb-1"><i class="fas fa-shield-alt mr-2"></i>Privacy Guarantee</h4>
+              <p class="text-sm">We maintain strict industry-standard security protocols. All saved profiles are encrypted and kept strictly private. We do not sell, rent, lease, or trade your personal data, birth charts, or query histories to any third-party marketing services.</p>
+            </div>
+            <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+              <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-hdd text-accent mr-2"></i>Local Storage</h4>
+              <p class="text-sm">Application preferences, UI theme states, and transient session settings are stored locally on your device using local storage or secure preferences to ensure a smooth, immediate user experience.</p>
+            </div>
+          </div>
+        `,
+        "content.thirdparty": `
+          <p>Our Mobile Application integrates with third-party service providers (SDKs) to display ads, manage subscriptions, and monitor stability. These services collect data in accordance with their own privacy policies. You can read their policies here:</p>
+          <ul class="space-y-3 pt-2">
+            <li class="flex items-start space-x-3">
+              <i class="fas fa-chevron-right text-accent mt-1.5 text-xs"></i>
+              <div>
+                <strong class="dark:text-white text-indigo-950">Google Mobile Ads (AdMob)</strong> — Used for displaying advertisements within the application. 
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline block md:inline-block md:ml-2">View Privacy Policy <i class="fas fa-external-link-alt text-[10px]"></i></a>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <i class="fas fa-chevron-right text-accent mt-1.5 text-xs"></i>
+              <div>
+                <strong class="dark:text-white text-indigo-950">RevenueCat</strong> — Used for validating in-app purchases and managing premium subscription states. 
+                <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline block md:inline-block md:ml-2">View Privacy Policy <i class="fas fa-external-link-alt text-[10px]"></i></a>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <i class="fas fa-chevron-right text-accent mt-1.5 text-xs"></i>
+              <div>
+                <strong class="dark:text-white text-indigo-950">Firebase (Analytics & Crashlytics)</strong> — Used for tracking app stability, logging crash metrics, and analyzing usage patterns to improve the overall experience. 
+                <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline block md:inline-block md:ml-2">View Privacy Policy <i class="fas fa-external-link-alt text-[10px]"></i></a>
+              </div>
+            </li>
+          </ul>
+        `,
+        "content.rights": `
+          <p>You retain full control over your information:</p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><strong class="dark:text-white text-indigo-950">Profile Management:</strong> You have the right to modify or delete your saved profiles directly from the app interface at any time.</li>
+            <li><strong class="dark:text-white text-indigo-950">Permanent Deletion Requests:</strong> If you want to permanently delete your account, saved profiles, and all associated data from our servers, you can submit a request to our support team at <a href="mailto:sarangapanchangam@gmail.com" class="text-accent hover:underline font-semibold">sarangapanchangam@gmail.com</a>. We will process and delete your data from our systems within 30 days.</li>
+          </ul>
+        `,
+        "content.children": `
+          <p>Our services are not designed for or targeted at children under 13 years of age. We do not knowingly collect personal information from children under 13. If we discover that a child under 13 has provided us with personal information, we will immediately delete it from our servers.</p>
+        `,
+        "content.contact": `
+          <p>If you have any questions or concerns regarding this Privacy Policy or your data, please contact us at:</p>
+          <ul class="space-y-3 pt-2">
+            <li class="flex items-center space-x-3">
+              <i class="fas fa-envelope text-accent w-5 text-center"></i>
+              <span>Email: <a href="mailto:sarangapanchangam@gmail.com" class="text-accent hover:underline font-medium">sarangapanchangam@gmail.com</a></span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fas fa-globe text-accent w-5 text-center"></i>
+              <span>Website Contact Form: <a href="https://aipanchangam.com/#contact" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline font-medium">aipanchangam.com/#contact</a></span>
+            </li>
+          </ul>
+        `
+      },
+      ta: {
+        "title": "தனியுரிமைக் கொள்கை | சாரங்கா AI ஆஸ்ட்ரோ",
+        "meta.desc": "சாரங்கா AI ஜோதிட செயலியின் தனியுரிமைக் கொள்கை. உங்கள் ஜோதிடத் தரவையும் தனியுரிமையையும் நாங்கள் எவ்வாறு சேகரிக்கிறோம், செயலாக்குகிறோம் மற்றும் பாதுகாக்கிறோம் என்பதைப் பற்றி தெரிந்துகொள்ளுங்கள்.",
+        "nav.home": "முகப்பு",
+        "header.title": "தனியுரிமைக் கொள்கை",
+        "header.subtitle": "செயலுக்கு வரும் தேதி: ஜூலை 14, 2026",
+        "toc.title": "பிரிவுகள்",
+        "toc.intro": "1. அறிமுகம்",
+        "toc.collect": "2. சேகரிக்கப்படும் தகவல்கள்",
+        "toc.storage": "3. தரவு சேமிப்பு & பாதுகாப்பு",
+        "toc.thirdparty": "4. மூன்றாம் தரப்பு சேவைகள்",
+        "toc.rights": "5. பயனர் உரிமைகள் & நீக்கம்",
+        "toc.children": "6. குழந்தைகளின் தனியுரிமை",
+        "toc.contact": "7. தொடர்பு விவரங்கள்",
+        "footer.rights": "அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+        "footer.privacy": "தனியுரிமைக் கொள்கை",
+        "footer.contact": "ஆதரவு தொடர்பு",
+        "content.intro": `
+          <p>சாரங்கா ஸ்பேசஸ் ("நாங்கள்", "எங்களை" அல்லது "எங்கள்") சாரங்கா AI அஸ்ட்ராலஜி மொபைல் செயலி ("மொபைல் செயலி" அல்லது "செயலி") மற்றும் aipanchangam.com என்ற இணையதளத்தை இயக்குகிறது. உங்கள் தனியுரிமையைப் பாதுகாப்பதற்கும், எங்கள் செயலியைப் பயன்படுத்தும்போது உங்களுக்குப் பாதுகாப்பான அனுபவத்தை உறுதி செய்வதற்கும் நாங்கள் கடமைப்பட்டுள்ளோம். இந்த தனியுரிமைக் கொள்கை உங்கள் தகவல்களை நாங்கள் எவ்வாறு சேகரிக்கிறோம், பயன்படுத்துகிறோம், சேமிக்கிறோம் மற்றும் பாதுகாக்கிறோம் என்பதை விளக்குகிறது.</p>
+        `,
+        "content.collect": `
+          <p>எங்கள் பயனர்களுக்கு சிறந்த ஜோதிட சேவைகளை வழங்குவதற்காக நாங்கள் தகவல்களைச் சேகரிக்கிறோம். குறிப்பாக:</p>
+          <div class="space-y-4">
+            <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+              <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-id-card text-accent mr-2"></i>சுயவிவரம் & ஜோதிட தரவு</h4>
+              <p class="text-sm">ஜோதிட கணக்கீடுகளை (ஜாதகம், பஞ்சாங்கம் மற்றும் ஜோதிட கணிப்புகள் போன்றவை) செய்ய, செயலியில் சுயவிவர அட்டைகளை நீங்கள் உருவாக்கலாம். இதற்கு பெயர், பிறந்த தேதி, பிறந்த நேரம் மற்றும் பிறந்த இடம் அல்லது இருப்பிடத்தின் ஒருங்கிணைப்புகள் உள்ளிட்ட பிறந்த விவரங்களை உள்ளிட வேண்டும்.</p>
+            </div>
+            <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+              <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-map-marker-alt text-accent mr-2"></i>சாதன இருப்பிட தரவு</h4>
+              <p class="text-sm">உங்கள் அனுமதியுடன், உங்கள் தற்போதைய இருப்பிடத்தைக் கண்டறிய செயலி உங்கள் சாதனத்தின் இருப்பிடத்தை அணுகும். இந்தத் தகவல் உங்கள் தற்போதைய இருப்பிடத்திற்கு ஏற்ப துல்லியமான உள்ளூர் தினசரி பஞ்சாங்க விவரங்களைக் (திதி, நட்சத்திரம், ராகு காலம் போன்றவை) காட்டப் பயன்படுத்தப்படுகிறது.</p>
+            </div>
+            <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+              <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-comments text-accent mr-2"></i>அரட்டை பதிவுகள்</h4>
+              <p class="text-sm">AI ஜோதிட உதவியாளரிடம் நீங்கள் கேட்கும் கேள்விகள் பதில்களை உருவாக்க செயலாக்கப்படுகின்றன. இந்த கேள்விகள் எங்கள் AI ஜோதிடருக்கு பொருத்தமான பதில்களை வழங்க உதவுகின்றன.</p>
+            </div>
+          </div>
+        `,
+        "content.storage": `
+          <p>உங்கள் தனியுரிமை எங்கள் முதன்மையான முன்னுரிமையாகும். உங்கள் தரவை நாங்கள் எவ்வாறு நிர்வகிக்கிறோம் மற்றும் பாதுகாக்கிறோம் என்பது இங்கே:</p>
+          <div class="space-y-4">
+            <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+              <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-server text-accent mr-2"></i>சர்வர் பக்க சேமிப்பு</h4>
+              <p class="text-sm">சேமிக்கப்பட்ட பயனர் சுயவிவரங்கள் (பெயர், பிறந்த தேதி, நேரம் மற்றும் இடம் உட்பட) எங்கள் சர்வரில் பாதுகாப்பாக சேமிக்கப்படுகின்றன. இது பல சாதனங்களில் உங்கள் சுயவிவரங்களை ஒத்திசைக்கவும், துல்லியமான ஜாதகக் கணக்கீடுகளைப் பெறவும் உதவுகிறது.</p>
+            </div>
+            <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl border border-accent/20">
+              <h4 class="font-bold text-accent mb-1"><i class="fas fa-shield-alt mr-2"></i>தனியுரிமை உத்தரவாதம்</h4>
+              <p class="text-sm">நாங்கள் கடுமையான பாதுகாப்பு நெறிமுறைகளைப் பின்பற்றுகிறோம். சேமிக்கப்பட்ட அனைத்து சுயவிவரங்களும் குறியாக்கம் (encrypted) செய்யப்பட்டு முற்றிலும் ரகசியமாக வைக்கப்படுகின்றன. உங்கள் தனிப்பட்ட தரவு, ஜாதகக் கணிப்புகள் அல்லது அரட்டை வரலாறுகளை எந்தவொரு விளம்பர அல்லது சந்தைப்படுத்தல் நிறுவனங்களுக்கும் நாங்கள் விற்கவோ, வாடகைக்கு விடவோ அல்லது பகிரவோ மாட்டோம்.</p>
+            </div>
+            <div class="p-4 bg-black/5 dark:bg-white/5 rounded-2xl">
+              <h4 class="font-bold text-indigo-950 dark:text-white mb-1"><i class="fas fa-hdd text-accent mr-2"></i>உள்ளூர் சேமிப்பு</h4>
+              <p class="text-sm">செயலியின் விருப்பத்தேர்வுகள், தீம் அமைப்புகள் மற்றும் தற்காலிக அமர்வு அமைப்புகள் உங்கள் சாதனத்தில் உள்ளூர் சேமிப்பகத்தில் சேமிக்கப்படுகின்றன.</p>
+            </div>
+          </div>
+        `,
+        "content.thirdparty": `
+          <p>எங்கள் மொபைல் செயலி விளம்பரங்களைக் காட்டவும், சந்தாக்களை நிர்வகிக்கவும் மற்றும் நிலைத்தன்மையைக் கண்காணிக்கவும் மூன்றாம் தரப்பு சேவை வழங்குநர்களுடன் (SDKs) ஒருங்கிணைக்கப்பட்டுள்ளது. இந்தச் சேவைகள் தங்களின் சொந்த தனியுரிமைக் கொள்கைகளின்படி தரவைச் சேகரிக்கின்றன:</p>
+          <ul class="space-y-3 pt-2">
+            <li class="flex items-start space-x-3">
+              <i class="fas fa-chevron-right text-accent mt-1.5 text-xs"></i>
+              <div>
+                <strong class="dark:text-white text-indigo-950">கூகுள் மொபைல் விளம்பரங்கள் (AdMob)</strong> — செயலியில் விளம்பரங்களைக் காட்டப் பயன்படுகிறது. 
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline block md:inline-block md:ml-2">தனியுரிமைக் கொள்கை <i class="fas fa-external-link-alt text-[10px]"></i></a>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <i class="fas fa-chevron-right text-accent mt-1.5 text-xs"></i>
+              <div>
+                <strong class="dark:text-white text-indigo-950">ரெவெனியூகேட் (RevenueCat)</strong> — செயலியில் வாங்குதல்களைச் சரிபார்க்கவும், பிரீமியம் சந்தாக்களை நிர்வகிக்கவும் பயன்படுகிறது. 
+                <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline block md:inline-block md:ml-2">தனியுரிமைக் கொள்கை <i class="fas fa-external-link-alt text-[10px]"></i></a>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <i class="fas fa-chevron-right text-accent mt-1.5 text-xs"></i>
+              <div>
+                <strong class="dark:text-white text-indigo-950">ஃபயர்பேஸ் (Firebase Analytics & Crashlytics)</strong> — செயலியின் நிலைத்தன்மை, செயலிழப்புகள் மற்றும் பயன்பாட்டு புள்ளிவிவரங்களைக் கண்காணிக்கப் பயன்படுகிறது. 
+                <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline block md:inline-block md:ml-2">தனியுரிமைக் கொள்கை <i class="fas fa-external-link-alt text-[10px]"></i></a>
+              </div>
+            </li>
+          </ul>
+        `,
+        "content.rights": `
+          <p>உங்கள் தகவல்களின் மீது உங்களுக்கு முழு கட்டுப்பாடு உள்ளது:</p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><strong class="dark:text-white text-indigo-950">சுயவிவர மேலாண்மை:</strong> செயலியில் நீங்கள் சேமித்த சுயவிவரங்களை எப்போது வேண்டுமானாலும் நேரடியாக மாற்றியமைக்க அல்லது நீக்க உங்களுக்கு உரிமை உள்ளது.</li>
+            <li><strong class="dark:text-white text-indigo-950">சர்வர் தரவு நீக்கம்:</strong> எங்கள் சர்வரில் இருந்து உங்கள் கணக்கு மற்றும் சேமிக்கப்பட்ட சுயவிவரங்களை நிரந்தரமாக நீக்க விரும்பினால், எங்களது ஆதரவு குழுவிற்கு <a href="mailto:sarangapanchangam@gmail.com" class="text-accent hover:underline font-semibold">sarangapanchangam@gmail.com</a> என்ற முகவரியில் கோரிக்கையை அனுப்பலாம். 30 நாட்களுக்குள் உங்கள் தரவு எங்கள் அமைப்புகளில் இருந்து நீக்கப்படும்.</li>
+          </ul>
+        `,
+        "content.children": `
+          <p>எங்கள் சேவைகள் 13 வயதிற்குட்பட்ட குழந்தைகளுக்காக வடிவமைக்கப்பட்டவை அல்ல. 13 வயதிற்குட்பட்ட குழந்தைகளிடமிருந்து நாங்கள் தெரிந்தே தனிப்பட்ட தகவல்களைச் சேகரிப்பதில்லை. 13 வயதிற்குட்பட்ட குழந்தை எங்களோடு தனிப்பட்ட தகவல்களைப் பகிர்ந்துள்ளதை நாங்கள் அறிந்தால், அதை எங்கள் சர்வரில் இருந்து உடனடியாக நீக்கிவிடுவோம்.</p>
+        `,
+        "content.contact": `
+          <p>இந்த தனியுரிமைக் கொள்கை அல்லது உங்கள் தரவு குறித்து உங்களுக்கு ஏதேனும் கேள்விகள் இருந்தால், எங்களை பின்வரும் முகவரியில் தொடர்பு கொள்ளலாம்:</p>
+          <ul class="space-y-3 pt-2">
+            <li class="flex items-center space-x-3">
+              <i class="fas fa-envelope text-accent w-5 text-center"></i>
+              <span>மின்னஞ்சல்: <a href="mailto:sarangapanchangam@gmail.com" class="text-accent hover:underline font-medium">sarangapanchangam@gmail.com</a></span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fas fa-globe text-accent w-5 text-center"></i>
+              <span>தொடர்பு பக்கம்: <a href="https://aipanchangam.com/#contact" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline font-medium">aipanchangam.com/#contact</a></span>
+            </li>
+          </ul>
+        `
+      }
+    };
+
+    // --- Theme & Lang Handlers ---
+    function applyTheme() {
+      if (state.theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+        document.getElementById('theme-icon').className = 'fas fa-sun';
+      } else {
+        document.documentElement.classList.add('light');
+        document.documentElement.classList.remove('dark');
+        document.getElementById('theme-icon').className = 'fas fa-moon';
+      }
+      localStorage.setItem('theme', state.theme);
+    }
+
+    function toggleTheme() {
+      state.theme = state.theme === 'dark' ? 'light' : 'dark';
+      applyTheme();
+    }
+
+    function applyLang() {
+      const current = i18n[state.lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (current[key]) {
+          el.innerHTML = current[key];
+        }
+      });
+      
+      // Inject translated content HTML dynamically for complex structures
+      document.getElementById('content-intro-container').innerHTML = current["content.intro"];
+      document.getElementById('content-collect-container').innerHTML = current["content.collect"];
+      document.getElementById('content-storage-container').innerHTML = current["content.storage"];
+      document.getElementById('content-thirdparty-container').innerHTML = current["content.thirdparty"];
+      document.getElementById('content-rights-container').innerHTML = current["content.rights"];
+      document.getElementById('content-children-container').innerHTML = current["content.children"];
+      document.getElementById('content-contact-container').innerHTML = current["content.contact"];
+
+      document.getElementById('lang-toggle').textContent = state.lang === 'en' ? 'TA' : 'EN';
+      localStorage.setItem('lang', state.lang);
+      
+      // Update page title & description for metadata
+      document.title = current["title"];
+      const descMeta = document.querySelector('meta[name="description"]');
+      if (descMeta) descMeta.setAttribute('content', current["meta.desc"]);
+    }
+
+    function toggleLang() {
+      state.lang = state.lang === 'en' ? 'ta' : 'en';
+      applyLang();
+    }
+
+    // --- Scroll Progress Bar Indicator ---
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scroll-progress').style.width = scrolled + '%';
+    });
+
+    // --- Scroll Spy & Table of Contents Active Link Highlight ---
+    window.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.toc-link');
+      const sections = document.querySelectorAll('article');
+
+      // Sync active state in Table of Contents as user scrolls
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -60% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            links.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+
+      // Scroll Spy Fallback for click events to make transition feel immediate
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          links.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        });
+      });
+    });
+
+    // Initialize Page State
+    applyTheme();
+    applyLang();
+  </script>
+</body>
+
+</html>
